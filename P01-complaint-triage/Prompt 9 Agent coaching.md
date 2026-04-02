@@ -1,6 +1,6 @@
 # P09 · Agent Coaching Feedback Note
 
-**Section:** 04 — Team Performance
+**Section:** 04 - Team Performance
 **Workflow step:** Step 1 of 1
 **Current version:** v1.1
 **Status:** ✅ Tested
@@ -8,7 +8,7 @@
 
 ---
 
-## 📌 Prompt Text (v1.1 — current)
+## 📌 Prompt Text (v1.1 - current)
 
 ```
 You are a customer service team leader at a mid-size Australian retail chain.
@@ -18,7 +18,7 @@ customer service agent. This note will be shared with the agent directly.
 
 Do not infer character traits, motivations, or personal qualities not evidenced in the data.
 Do not make assumptions about why performance gaps occurred.
-This is a coaching note — it must be constructive, specific, and forward-looking.
+This is a coaching note - it must be constructive, specific, and forward-looking.
 
 Agent performance data (this week):
 - Agent name: [AGENT_NAME]
@@ -37,15 +37,15 @@ Your coaching note must include:
 
 1. OPENING: One positive observation grounded in the data above.
 2. PERFORMANCE SUMMARY: 2–3 sentences summarising this week's metrics vs team average. State numbers.
-3. AREA FOR DEVELOPMENT: Identify ONE specific area where performance is below team average. Be specific — reference the actual metric.
-4. SUGGESTED ACTION: ONE concrete, actionable suggestion the agent can try next week (based only on the data — do not invent causes or remedies not supported by the data).
+3. AREA FOR DEVELOPMENT: Identify ONE specific area where performance is below team average. Be specific - reference the actual metric.
+4. SUGGESTED ACTION: ONE concrete, actionable suggestion the agent can try next week (based only on the data - do not invent causes or remedies not supported by the data).
 5. CLOSING: A brief, encouraging close that reinforces team support.
 
 After drafting, review your note and confirm:
 - Does it contain any inference about the agent's personality or motivation? If yes, remove it.
 - Is every claim backed by a specific number from the data? If not, revise.
 
-Tone: Supportive, direct, professional. This is not a performance review — it is a coaching conversation starter.
+Tone: Supportive, direct, professional. This is not a performance review - it is a coaching conversation starter.
 Maximum length: 200 words.
 ```
 
@@ -93,15 +93,15 @@ Team leader reviews draft (target: <5 min) → Shares with agent in 1:1
 
 ## ❗ Problem Being Solved
 
-Team leaders currently spend **30–45 minutes per agent** preparing individual performance feedback notes — when they prepare them at all. In practice, informal feedback is given verbally and inconsistently, with no written record. This means performance coaching is reactive rather than structured, and agents receive different quality and frequency of feedback depending on their team leader.
+Team leaders currently spend **30–45 minutes per agent** preparing individual performance feedback notes - when they prepare them at all. In practice, informal feedback is given verbally and inconsistently, with no written record. This means performance coaching is reactive rather than structured, and agents receive different quality and frequency of feedback depending on their team leader.
 
-For a team of 10 agents, structured weekly coaching notes represent **5–7 hours of team leader time** — an investment that is frequently deprioritised when complaint volumes are high.
+For a team of 10 agents, structured weekly coaching notes represent **5–7 hours of team leader time** - an investment that is frequently deprioritised when complaint volumes are high.
 
 **Pain points addressed:**
 - 30–45 min per agent to prepare feedback (5–7 hrs/week total for team of 10)
 - Inconsistent feedback quality across team leaders
 - No written record of coaching conversations for HR purposes
-- Feedback often given verbally without specific data references — hard for agents to act on
+- Feedback often given verbally without specific data references - hard for agents to act on
 
 ---
 
@@ -111,11 +111,11 @@ For a team of 10 agents, structured weekly coaching notes represent **5–7 hour
 
 | Dimension | Assessment |
 |-----------|------------|
-| Repetitiveness | High — same structure needed for every agent every week |
+| Repetitiveness | High - same structure needed for every agent every week |
 | Data availability | All inputs available in weekly CRM performance report |
-| Human judgment needed | High — team leader must review carefully; feedback affects employee relationships and wellbeing |
+| Human judgment needed | High - team leader must review carefully; feedback affects employee relationships and wellbeing |
 | Integration possibility | Could integrate with CRM performance module to auto-populate agent data |
-| Estimated time saving | ~70% — from 30–45 min per agent to 5–10 min review and personalisation |
+| Estimated time saving | ~70% - from 30–45 min per agent to 5–10 min review and personalisation |
 
 **Human-in-the-loop role:** Team leader reads every coaching note before sharing with an agent. Team leader may personalise tone, add context not captured in metrics, or adjust wording for the specific agent relationship. No coaching note is shared with an agent without team leader review and approval.
 
@@ -129,29 +129,29 @@ For a team of 10 agents, structured weekly coaching notes represent **5–7 hour
 | Coaching note used as substitute for real conversation | High | Note explicitly framed as "coaching conversation starter" in prompt; team leader training reinforces that note is a tool, not a replacement for dialogue |
 | Negative framing damages agent morale or psychological safety | High | Tone constraint: "Supportive, direct, professional"; mandatory positive opening; forward-looking suggested action only |
 | Performance data contains errors (CRM misattribution) | Medium | Team leader verifies metrics before running prompt; CRM data validation process in place |
-| Privacy — agent performance data processed through AI | Medium | Enterprise API deployment; no PII logging; performance data anonymised where possible |
+| Privacy - agent performance data processed through AI | Medium | Enterprise API deployment; no PII logging; performance data anonymised where possible |
 
-**Overall risk rating: HIGH** — human review before sharing with agents is mandatory. This prompt operates in a sensitive employment context where errors carry significant wellbeing and legal risk.
+**Overall risk rating: HIGH** - human review before sharing with agents is mandatory. This prompt operates in a sensitive employment context where errors carry significant wellbeing and legal risk.
 
 ---
 
 ## 🔄 Version History
 
-### v1.0 — Initial draft
+### v1.0 - Initial draft
 **Date:** 9 April 2025
 **Prompt:** `Write a coaching note for [AGENT_NAME] based on this week's performance data: [PERFORMANCE_DATA]. Be constructive.`
-**Output:** Note included: "It seems like Marcus may be struggling to prioritise his workload" (personality inference not in data) and "Perhaps he needs more motivation" (assumption about cause not supported by metrics). One note described an agent as "inconsistent" — a character judgement, not a data observation.
+**Output:** Note included: "It seems like Marcus may be struggling to prioritise his workload" (personality inference not in data) and "Perhaps he needs more motivation" (assumption about cause not supported by metrics). One note described an agent as "inconsistent" - a character judgement, not a data observation.
 **Observed effect:** Team leader immediately flagged the inferences as inappropriate and potentially discriminatory. Draft could not be shared with agents without significant rewriting.
 **Lesson learned:** Employment-context feedback requires extremely strong constraints against personality inference. A self-critique step is essential to catch inferences before they reach a manager.
 
 ---
 
-### v1.1 — Anti-inference constraint + self-critique + structured format ✅ Current
+### v1.1 - Anti-inference constraint + self-critique + structured format ✅ Current
 **Date:** 13 April 2025
 **Change:** Added explicit constraint against personality/motivation inference; added self-critique step (two verification questions); added mandatory positive opening; restructured 5-element format; removed open-ended "be constructive" instruction in favour of specific output requirements; 200-word limit added
 **Output:** In 12 test cases, zero personality inferences detected. All metric references backed by specific numbers. Self-critique step caught two instances of implicit judgement language and removed them.
 **Observed effect:** Team leader review time reduced from 30–45 min to 5–10 min. Team leader described drafts as "a solid starting point that I can personalise without worrying about what to remove."
-**Lesson learned:** The self-critique step is the most important element of this prompt — without it, the model consistently slips into characterising agents rather than describing data. In HR-adjacent contexts, this step is non-negotiable.
+**Lesson learned:** The self-critique step is the most important element of this prompt - without it, the model consistently slips into characterising agents rather than describing data. In HR-adjacent contexts, this step is non-negotiable.
 
 ---
 
@@ -170,6 +170,6 @@ For a team of 10 agents, structured weekly coaching notes represent **5–7 hour
 
 ## 🔗 Related Prompts
 
-- **Data source:** P08 — Weekly complaint trend report (performance metrics)
-- **Context:** P02 — Customer response draft (QA review of agent responses informs coaching)
+- **Data source:** P08 - Weekly complaint trend report (performance metrics)
+- **Context:** P02 - Customer response draft (QA review of agent responses informs coaching)
 - **Library index:** README.md
