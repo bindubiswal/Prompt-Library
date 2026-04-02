@@ -1,4 +1,4 @@
-# P02 · Customer Response Draft
+# Prompt 2 · Customer Response Draft
 
 **Section:** 01 - Complaint Handling
 **Workflow step:** Step 2 of 3
