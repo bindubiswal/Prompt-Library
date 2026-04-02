@@ -1,6 +1,6 @@
 # P01 · Complaint Triage and Classification
 
-**Section:** 01 — Complaint Handling
+**Section:** 01 - Complaint Handling
 **Workflow step:** Step 1 of 3
 **Current version:** v1.2
 **Status:** ✅ Tested
@@ -32,7 +32,7 @@ Respond in JSON only. Do not add any explanation, greeting, or text outside the 
 {
   "category": "[chosen category]",
   "urgency": "[Low / Medium / High]",
-  "one_line_reason": "[One sentence — why this category and urgency]"
+  "one_line_reason": "[One sentence - why this category and urgency]"
 }
 ```
 
