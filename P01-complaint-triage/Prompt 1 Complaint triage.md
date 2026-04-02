@@ -1,4 +1,4 @@
-# P01 · Complaint Triage and Classification
+# Prompt 1 · Complaint Triage and Classification
 
 **Section:** 01 - Complaint Handling
 **Workflow step:** Step 1 of 3
