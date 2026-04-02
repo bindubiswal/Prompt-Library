@@ -1,4 +1,4 @@
-# P03 · Escalation Summary for Management
+# Prompt3 · Escalation Summary for Management
 
 **Section:** 01 - Complaint Handling
 **Workflow step:** Step 3 of 3
