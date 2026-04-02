@@ -1,14 +1,14 @@
 # P04 · Refund / Return Decision Recommendation
 
-**Section:** 02 — Resolution Management
+**Section:** 02 - Resolution Management
 **Workflow step:** Step 2 of 2
 **Current version:** v1.2
-**Status:** ✅ Tested
+**Status:**  Tested
 **Last updated:** April 2025
 
 ---
 
-## 📌 Prompt Text (v1.2 — current)
+## 📌 Prompt Text (v1.2 - current)
 
 ```
 You are a customer service resolution specialist at a mid-size Australian retail chain.
@@ -36,9 +36,9 @@ Refund and return policy rules (apply exactly as stated):
 
 Respond in this format:
 RECOMMENDATION: [Full refund / Store credit / Manager approval required / Decline / Replacement]
-POLICY BASIS: [State which policy rule applies — one sentence]
+POLICY BASIS: [State which policy rule applies - one sentence]
 AGENT NOTE: [One sentence of guidance for the agent handling this case]
-HUMAN REVIEW REQUIRED: [Yes / No — Yes if case involves ambiguity, consumer law, or manager approval]
+HUMAN REVIEW REQUIRED: [Yes / No - Yes if case involves ambiguity, consumer law, or manager approval]
 ```
 
 **Placeholders to fill:**
@@ -51,7 +51,7 @@ HUMAN REVIEW REQUIRED: [Yes / No — Yes if case involves ambiguity, consumer la
 | `[RETURN_REASON]` | Customer's stated reason | "Item arrived with a broken sole" |
 | `[DAYS_SINCE_PURCHASE]` | Calculated by CRM | "28 days" |
 | `[YES / NO]` | CRM record | "Yes" |
-| `[ITEM_CONDITION]` | Agent assessment or customer statement | "Faulty — broken sole on first wear" |
+| `[ITEM_CONDITION]` | Agent assessment or customer statement | "Faulty - broken sole on first wear" |
 
 ---
 
@@ -85,7 +85,7 @@ A 2024 internal audit found that **23% of refund decisions** made without manage
 
 **Pain points addressed:**
 - Policy inconsistency across agent team (23% error rate identified in audit)
-- Financial cost of incorrectly approved refunds (~$85 per error)
+- Financial cost of incorrectly approved refunds ($85 per error)
 - Legal risk from incorrectly declined refunds (Australian Consumer Law obligations)
 - Agent uncertainty and time spent checking policy documents manually
 
@@ -97,13 +97,13 @@ A 2024 internal audit found that **23% of refund decisions** made without manage
 
 | Dimension | Assessment |
 |-----------|------------|
-| Repetitiveness | High — same policy rules applied to every refund/return request |
+| Repetitiveness | High - same policy rules applied to every refund/return request |
 | Data availability | All inputs available in CRM order record |
-| Human judgment needed | Medium-High — policy edge cases and consumer law situations require human review |
+| Human judgment needed | Medium-High - policy edge cases and consumer law situations require human review |
 | Integration possibility | Could integrate with CRM to auto-populate recommendation in ticket |
-| Estimated time saving | ~60% — from 10–15 min policy lookup + decision to 3–5 min review |
+| Estimated time saving | ~60% - from 10–15 min policy lookup + decision to 3–5 min review |
 
-**Human-in-the-loop role:** Agent reviews every recommendation before communicating to customer. All cases flagged HUMAN REVIEW = Yes are escalated to manager before any commitment is made. The AI recommends only — it does not communicate directly with the customer or apply any decision autonomously.
+**Human-in-the-loop role:** Agent reviews every recommendation before communicating to customer. All cases flagged HUMAN REVIEW = Yes are escalated to manager before any commitment is made. The AI recommends only - it does not communicate directly with the customer or apply any decision autonomously.
 
 ---
 
@@ -116,13 +116,13 @@ A 2024 internal audit found that **23% of refund decisions** made without manage
 | Model fabricates a policy rule not in the prompt | High | Grounding constraint: "Do not reference any policies, amounts, or timeframes not listed above"; agent reviews policy basis field |
 | Agent over-relies on recommendation without checking | Medium | AGENT NOTE field prompts agent to consider context; training reinforces that recommendation is advisory only |
 
-**Overall risk rating: HIGH** — all decisions communicated to customers must be reviewed by a human agent. Manager approval required for any case flagged as ambiguous.
+**Overall risk rating: HIGH** - all decisions communicated to customers must be reviewed by a human agent. Manager approval required for any case flagged as ambiguous.
 
 ---
 
 ## 🔄 Version History
 
-### v1.0 — Initial draft
+### v1.0 - Initial draft
 **Date:** 4 April 2025
 **Prompt:** `Based on our return policy, should this customer receive a refund? [ORDER_DETAILS]. Our policy allows returns within 30 days.`
 **Output:** Model gave confident refund approvals even when items were over 60 days old. In one test it invented a "goodwill policy" for loyal customers not in the actual policy.
@@ -131,16 +131,16 @@ A 2024 internal audit found that **23% of refund decisions** made without manage
 
 ---
 
-### v1.1 — Explicit policy rules added
+### v1.1 - Explicit policy rules added
 **Date:** 7 April 2025
 **Change:** Added complete policy ruleset; added grounding constraint; structured output format added
-**Output:** Correct recommendations in 18/25 test cases. Remaining 7 errors all involved faulty item claims — model did not recognise consumer law override.
+**Output:** Correct recommendations in 18/25 test cases. Remaining 7 errors all involved faulty item claims - model did not recognise consumer law override.
 **Observed effect:** Significant improvement but consumer law gap created liability risk.
-**Lesson learned:** Australian Consumer Law requirements must be explicitly stated in the policy rules — the model does not have reliable jurisdiction-specific legal knowledge.
+**Lesson learned:** Australian Consumer Law requirements must be explicitly stated in the policy rules - the model does not have reliable jurisdiction-specific legal knowledge.
 
 ---
 
-### v1.2 — Consumer law rule + HUMAN REVIEW field ✅ Current
+### v1.2 - Consumer law rule + HUMAN REVIEW field  Current
 **Date:** 11 April 2025
 **Change:** Added explicit consumer law rule for faulty items; added HUMAN REVIEW field to flag ambiguous cases; added AGENT NOTE field for contextual guidance
 **Output:** Correct recommendations in 24/25 test cases. Manager override rate dropped from 40% to 12%.
@@ -164,6 +164,6 @@ A 2024 internal audit found that **23% of refund decisions** made without manage
 
 ## 🔗 Related Prompts
 
-- **Previous in chain:** P05 — Order issue investigation summary
-- **Runs alongside:** P02 — Customer response draft (agent uses P04 output to inform P02)
+- **Previous in chain:** P05 - Order issue investigation summary
+- **Runs alongside:** P02 - Customer response draft (agent uses P04 output to inform P02)
 - **Library index:** README.md
