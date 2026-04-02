@@ -1,6 +1,6 @@
 # P04 · Refund / Return Decision Recommendation
 
-**Section:** 02 — Resolution Management
+**Section:** 02 - Resolution Management
 **Workflow step:** Step 2 of 2
 **Current version:** v1.2
 **Status:** ✅ Tested
@@ -8,7 +8,7 @@
 
 ---
 
-## 📌 Prompt Text (v1.2 — current)
+## 📌 Prompt Text (v1.2 - current)
 
 ```
 You are a customer service resolution specialist at a mid-size Australian retail chain.
@@ -36,9 +36,9 @@ Refund and return policy rules (apply exactly as stated):
 
 Respond in this format:
 RECOMMENDATION: [Full refund / Store credit / Manager approval required / Decline / Replacement]
-POLICY BASIS: [State which policy rule applies — one sentence]
+POLICY BASIS: [State which policy rule applies - one sentence]
 AGENT NOTE: [One sentence of guidance for the agent handling this case]
-HUMAN REVIEW REQUIRED: [Yes / No — Yes if case involves ambiguity, consumer law, or manager approval]
+HUMAN REVIEW REQUIRED: [Yes / No - Yes if case involves ambiguity, consumer law, or manager approval]
 ```
 
 **Placeholders to fill:**
@@ -97,11 +97,11 @@ A 2024 internal audit found that **23% of refund decisions** made without manage
 
 | Dimension | Assessment |
 |-----------|------------|
-| Repetitiveness | High — same policy rules applied to every refund/return request |
+| Repetitiveness | High - same policy rules applied to every refund/return request |
 | Data availability | All inputs available in CRM order record |
-| Human judgment needed | Medium-High — policy edge cases and consumer law situations require human review |
+| Human judgment needed | Medium-High - policy edge cases and consumer law situations require human review |
 | Integration possibility | Could integrate with CRM to auto-populate recommendation in ticket |
-| Estimated time saving | ~60% — from 10–15 min policy lookup + decision to 3–5 min review |
+| Estimated time saving | ~60% - from 10–15 min policy lookup + decision to 3-5 min review |
 
 **Human-in-the-loop role:** Agent reviews every recommendation before communicating to customer. All cases flagged HUMAN REVIEW = Yes are escalated to manager before any commitment is made. The AI recommends only — it does not communicate directly with the customer or apply any decision autonomously.
 
