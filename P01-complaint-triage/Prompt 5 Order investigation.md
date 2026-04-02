@@ -1,6 +1,6 @@
 # P05 · Order Issue Investigation Summary
 
-**Section:** 02 — Resolution Management
+**Section:** 02 - Resolution Management
 **Workflow step:** Step 1 of 2
 **Current version:** v1.1
 **Status:** ✅ Tested
@@ -8,7 +8,7 @@
 
 ---
 
-## 📌 Prompt Text (v1.1 — current)
+## 📌 Prompt Text (v1.1 - current)
 
 ```
 You are a customer service investigator at a mid-size Australian retail chain.
@@ -49,7 +49,7 @@ Maximum length: 180 words. Plain text only. No bullet points within sections.
 | `[ITEMS_ORDERED]` | CRM order record | "1x Merino wool jumper, navy, size M" |
 | `[DELIVERY_ADDRESS]` | CRM record | "14 Smith St, Richmond VIC 3121" |
 | `[CARRIER]` | CRM shipping record | "Australia Post" |
-| `[TRACKING_STATUS]` | Carrier API | "In transit — delayed" |
+| `[TRACKING_STATUS]` | Carrier API | "In transit - delayed" |
 | `[LAST_TRACKING_EVENT]` | Carrier API | "Departed Melbourne facility, 22 March 2025" |
 | `[COMPLAINT_TEXT]` | Customer complaint | "My order hasn't arrived and no one is helping me." |
 | `[PREVIOUS_CONTACTS]` | CRM contact history | "None" |
@@ -98,13 +98,13 @@ In a team handling 200+ complaints per day, this represents **30–50 hours of i
 
 | Dimension | Assessment |
 |-----------|------------|
-| Repetitiveness | High — same data points investigated for every delivery/order complaint |
+| Repetitiveness | High - same data points investigated for every delivery/order complaint |
 | Data availability | All inputs available via CRM + carrier API integration |
-| Human judgment needed | Medium — agent must interpret summary and decide next action |
+| Human judgment needed | Medium - agent must interpret summary and decide next action |
 | Integration possibility | Could pull order + tracking data automatically via CRM/carrier API, removing need for manual input |
-| Estimated time saving | ~75% — from 10–15 min manual investigation to 2–3 min review of structured summary |
+| Estimated time saving | ~75% - from 10–15 min manual investigation to 2–3 min review of structured summary |
 
-**Human-in-the-loop role:** Agent reads and acts on the summary. All decisions about resolution (refund, resend, carrier escalation) are made by the agent. The summary organises information — it does not decide outcomes.
+**Human-in-the-loop role:** Agent reads and acts on the summary. All decisions about resolution (refund, resend, carrier escalation) are made by the agent. The summary organises information - it does not decide outcomes.
 
 ---
 
@@ -117,27 +117,27 @@ In a team handling 200+ complaints per day, this represents **30–50 hours of i
 | Agent treats summary as definitive without checking source data | Medium | Summary framed as "investigation starting point" in agent training; DISCREPANCY CHECK section encourages critical review |
 | CRM + carrier data integration failure causes incomplete inputs | Low | Validation step checks all placeholders are populated before prompt runs; incomplete inputs trigger manual process |
 
-**Overall risk rating: MEDIUM** — suitable for automation as an investigation starting point. Agent must verify key facts before communicating resolution to customer.
+**Overall risk rating: MEDIUM** - suitable for automation as an investigation starting point. Agent must verify key facts before communicating resolution to customer.
 
 ---
 
 ## 🔄 Version History
 
-### v1.0 — Initial draft
+### v1.0 - Initial draft
 **Date:** 5 April 2025
 **Prompt:** `Summarise the following order issue for a customer service agent: [ORDER_DETAILS] [COMPLAINT_TEXT]`
-**Output:** Unstructured paragraph that mixed order facts with assumptions. In one test, model concluded "the parcel is likely lost" based only on a 3-day delay — a conclusion not supported by the tracking data provided.
+**Output:** Unstructured paragraph that mixed order facts with assumptions. In one test, model concluded "the parcel is likely lost" based only on a 3-day delay - a conclusion not supported by the tracking data provided.
 **Observed effect:** Agents found the unstructured output hard to act on. Fabricated conclusions created risk of incorrect commitments to customers.
 **Lesson learned:** Structured output sections are essential for operational use. Grounding constraints must explicitly prohibit assumptions. An INFORMATION GAPS section is needed to surface what the AI doesn't know.
 
 ---
 
-### v1.1 — Structured sections + grounding constraint + DISCREPANCY CHECK ✅ Current
+### v1.1 - Structured sections + grounding constraint + DISCREPANCY CHECK ✅ Current
 **Date:** 10 April 2025
 **Change:** Added five structured output sections; added grounding constraint ("do not add conclusions not supported by data"); added DISCREPANCY CHECK section; added INFORMATION GAPS section; added 180-word limit
 **Output:** Clean, structured summaries in all 20 test cases. Zero fabricated conclusions. Discrepancy check correctly identified mismatch between tracking and customer claim in 4/5 relevant cases.
 **Observed effect:** Agent investigation time reduced from 10–15 min to 2–3 min. Agents reported higher confidence in understanding the issue before contacting customers.
-**Lesson learned:** The DISCREPANCY CHECK section is unexpectedly valuable — it surfaces conflicts in the data that agents might miss when rushing through manual investigation. INFORMATION GAPS section prevents agents from assuming they have the full picture.
+**Lesson learned:** The DISCREPANCY CHECK section is unexpectedly valuable - it surfaces conflicts in the data that agents might miss when rushing through manual investigation. INFORMATION GAPS section prevents agents from assuming they have the full picture.
 
 ---
 
@@ -156,6 +156,6 @@ In a team handling 200+ complaints per day, this represents **30–50 hours of i
 
 ## 🔗 Related Prompts
 
-- **Next in chain:** P04 — Refund / return decision recommendation
-- **Feeds into:** P02 — Customer response draft
+- **Next in chain:** P04 - Refund / return decision recommendation
+- **Feeds into:** P02 - Customer response draft
 - **Library index:** README.md
