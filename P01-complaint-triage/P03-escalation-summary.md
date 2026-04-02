@@ -1,6 +1,6 @@
 # P03 · Escalation Summary for Management
 
-**Section:** 01 — Complaint Handling
+**Section:** 01 - Complaint Handling
 **Workflow step:** Step 3 of 3
 **Current version:** v1.1
 **Status:** ✅ Tested
@@ -8,13 +8,13 @@
 
 ---
 
-## 📌 Prompt Text (v1.1 — current)
+## 📌 Prompt Text (v1.1 - current)
 
 ```
 You are a senior customer service analyst at a mid-size Australian retail chain.
 
 A customer complaint has been flagged as High urgency. Prepare a concise escalation summary
-for the Customer Service Manager. Use ONLY the information provided below — do not infer,
+for the Customer Service Manager. Use ONLY the information provided below - do not infer,
 assume, or add any details not explicitly stated.
 
 Complaint details:
@@ -29,7 +29,7 @@ Your escalation summary must include these sections:
 
 1. COMPLAINT OVERVIEW (2–3 sentences): What happened, who is affected, when it was received.
 2. URGENCY JUSTIFICATION (1–2 sentences): Why this complaint meets the High urgency threshold.
-3. RISK ASSESSMENT: Identify ONE primary risk from this list only — Legal / Reputational / Safety / Financial. State the specific risk in one sentence.
+3. RISK ASSESSMENT: Identify ONE primary risk from this list only - Legal / Reputational / Safety / Financial. State the specific risk in one sentence.
 4. RECOMMENDED IMMEDIATE ACTION (1–2 sentences): What the manager should do in the next 2 hours.
 5. AGENT STATUS: What action the assigned agent has taken so far.
 
@@ -79,7 +79,7 @@ Manager receives alert + summary (target: within 60 seconds of complaint receipt
 
 ## ❗ Problem Being Solved
 
-High-urgency complaints — involving personal injury, discrimination, financial loss, or legal threats — currently take an average of **45–90 minutes** to reach management, as they must pass through the standard agent queue before being manually flagged. This delay creates significant legal and reputational risk.
+High-urgency complaints - involving personal injury, discrimination, financial loss, or legal threats - currently take an average of **45–90 minutes** to reach management, as they must pass through the standard agent queue before being manually flagged. This delay creates significant legal and reputational risk.
 
 In complaints involving discrimination or threatened legal action, every hour of delay increases liability exposure. A structured, immediate escalation summary ensures managers have the right information to act within minutes, not hours.
 
@@ -97,13 +97,13 @@ In complaints involving discrimination or threatened legal action, every hour of
 
 | Dimension | Assessment |
 |-----------|------------|
-| Repetitiveness | Medium — only triggered for High-urgency complaints (~5–10% of daily volume) |
+| Repetitiveness | Medium - only triggered for High-urgency complaints (~5–10% of daily volume) |
 | Data availability | All inputs available from CRM at time of triage |
-| Human judgment needed | High — manager must make all decisions; AI only structures information |
+| Human judgment needed | High - manager must make all decisions; AI only structures information |
 | Integration possibility | Summary delivered via automated alert to manager's email/Slack within 60 seconds |
-| Estimated time saving | ~70% — from 45–90 min manual escalation to <2 min automated summary |
+| Estimated time saving | ~70% - from 45–90 min manual escalation to <2 min automated summary |
 
-**Human-in-the-loop role:** Manager receives and reads every escalation summary. All decisions (legal referral, customer callback, HR involvement) are made by the manager. AI does not make or suggest specific decisions — it only organises available information. Self-critique step in prompt reduces hallucination risk before summary reaches manager.
+**Human-in-the-loop role:** Manager receives and reads every escalation summary. All decisions (legal referral, customer callback, HR involvement) are made by the manager. AI does not make or suggest specific decisions - it only organises available information. Self-critique step in prompt reduces hallucination risk before summary reaches manager.
 
 ---
 
@@ -111,32 +111,32 @@ In complaints involving discrimination or threatened legal action, every hour of
 
 | Risk | Level | Mitigation |
 |------|-------|------------|
-| Model infers facts not stated in complaint (hallucination) | High | Grounding constraint: "Use ONLY the information provided — do not infer or add details not stated"; self-critique step reviews for fabricated content |
+| Model infers facts not stated in complaint (hallucination) | High | Grounding constraint: "Use ONLY the information provided - do not infer or add details not stated"; self-critique step reviews for fabricated content |
 | Risk category misassigned (e.g. Legal flagged instead of Safety) | High | Risk categories constrained to fixed list of 4; manager always verifies before acting |
 | Summary used as substitute for manager reading original complaint | Medium | Summary explicitly states it is an overview; original complaint text linked in CRM; manager trained to verify |
 | Sensitive complaint details (discrimination, injury) processed through AI | High | Enterprise API with data processing agreement; no PII logging; legal review of AI use policy for sensitive complaint types |
 
-**Overall risk rating: HIGH** — always requires manager review before any action is taken. Self-critique step and grounding constraint reduce but do not eliminate hallucination risk.
+**Overall risk rating: HIGH** - always requires manager review before any action is taken. Self-critique step and grounding constraint reduce but do not eliminate hallucination risk.
 
 ---
 
 ## 🔄 Version History
 
-### v1.0 — Initial draft
+### v1.0 - Initial draft
 **Date:** 3 April 2025
 **Prompt:** `Summarise this high-urgency customer complaint for a manager: [COMPLAINT_TEXT]. Include the key risk and what action should be taken.`
-**Output:** In one test involving a discrimination complaint, the model added: "The customer may be considering media involvement" — a detail not in the original complaint. In another, it recommended a specific compensation amount not authorised by the business.
-**Observed effect:** Manager flagged fabricated details as a serious concern. Summary could not be trusted without extensive verification — defeating the time-saving purpose.
+**Output:** In one test involving a discrimination complaint, the model added: "The customer may be considering media involvement" - a detail not in the original complaint. In another, it recommended a specific compensation amount not authorised by the business.
+**Observed effect:** Manager flagged fabricated details as a serious concern. Summary could not be trusted without extensive verification - defeating the time-saving purpose.
 **Lesson learned:** High-stakes summaries require strict grounding constraints. Model must be told explicitly to use only provided information. A self-critique step is needed to catch fabricated content before it reaches a manager.
 
 ---
 
-### v1.1 — Grounding constraint + self-critique step + fixed risk categories ✅ Current
+### v1.1 - Grounding constraint + self-critique step + fixed risk categories ✅ Current
 **Date:** 9 April 2025
 **Change:** Added grounding constraint ("use ONLY information provided"), added self-critique review step, constrained risk categories to fixed list of 4, removed open-ended "recommended action" in favour of manager-directed action prompt
 **Output:** In 15 test cases, zero instances of fabricated information. Risk category correctly assigned in 14/15 cases. Self-critique step caught one instance where model had inferred customer intent.
 **Observed effect:** Manager review time reduced from 45–90 min to under 5 min. Trust in summary accuracy significantly improved.
-**Lesson learned:** Self-critique prompting is highly effective for high-stakes factual outputs. Constraining risk categories prevents model from creating its own taxonomy. Grounding constraint must be prominent in the prompt — not buried at the end.
+**Lesson learned:** Self-critique prompting is highly effective for high-stakes factual outputs. Constraining risk categories prevents model from creating its own taxonomy. Grounding constraint must be prominent in the prompt - not buried at the end.
 
 ---
 
@@ -155,6 +155,6 @@ In complaints involving discrimination or threatened legal action, every hour of
 
 ## 🔗 Related Prompts
 
-- **Previous in chain:** P01 — Complaint triage (urgency = High triggers this prompt)
-- **Runs in parallel with:** P02 — Customer response draft
+- **Previous in chain:** P01 - Complaint triage (urgency = High triggers this prompt)
+- **Runs in parallel with:** P02 - Customer response draft
 - **Library index:** README.md
