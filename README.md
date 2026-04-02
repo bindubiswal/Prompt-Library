@@ -84,46 +84,15 @@ BUS4005-Prompt-Library/
 ├── README.md                          ← You are here (library index)
 │
 ├── P01-complaint-triage/
-│   ├── P01-v1.0.md                   ← First rough draft
-│   ├── P01-v1.1.md                   ← After adding JSON + categories
-│   └── P01-v1.2.md                   ← Final tested version
-│
-├── P02-response-draft/
-│   ├── P02-v1.0.md
-│   └── P02-v1.1.md
-│
 ├── P03-escalation-summary/
-│   ├── P03-v1.0.md
-│   └── P03-v1.1.md
-│
 ├── P04-refund-decision/
-│   ├── P04-v1.0.md
-│   ├── P04-v1.1.md
-│   └── P04-v1.2.md
-│
 ├── P05-order-investigation/
-│   ├── P05-v1.0.md
-│   └── P05-v1.1.md
-│
 ├── P06-followup-satisfaction/
-│   ├── P06-v1.0.md
-│   └── P06-v1.1.md
-│
 ├── P07-review-response/
-│   ├── P07-v1.0.md
-│   └── P07-v1.1.md
-│
 ├── P08-weekly-trend-report/
-│   ├── P08-v1.0.md
-│   └── P08-v1.1.md
-│
 ├── P09-agent-coaching/
-│   ├── P09-v1.0.md
-│   └── P09-v1.1.md
-│
 └── P10-faq-auto-response/
-    ├── P10-v1.0.md
-    └── P10-v1.1.md
+
 ```
 
 ---
