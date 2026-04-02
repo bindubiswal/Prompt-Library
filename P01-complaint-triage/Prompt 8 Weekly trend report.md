@@ -1,6 +1,6 @@
 # P08 · Weekly Complaint Trend Report
 
-**Section:** 04 — Reporting and Insights
+**Section:** 04 - Reporting and Insights
 **Workflow step:** Step 1 of 1
 **Current version:** v1.1
 **Status:** ✅ Tested
@@ -8,7 +8,7 @@
 
 ---
 
-## 📌 Prompt Text (v1.1 — current)
+## 📌 Prompt Text (v1.1 - current)
 
 ```
 You are a customer service analyst at a mid-size Australian retail chain.
@@ -36,7 +36,7 @@ Your report must include these sections:
 3. URGENCY OVERVIEW (2 sentences): High/Medium/Low split. Flag if High urgency count exceeds 15.
 4. RESOLUTION PERFORMANCE (2 sentences): Average resolution time vs last week. Flag if overdue count exceeds 10.
 5. KEY THEMES (3 bullet points max): The top recurring complaint themes from agent notes.
-6. FLAGS FOR MANAGEMENT: List only items that exceed the following thresholds —
+6. FLAGS FOR MANAGEMENT: List only items that exceed the following thresholds -
    - High urgency > 15 complaints
    - Overdue complaints > 10
    - Any single category > 50% of total volume
@@ -84,7 +84,7 @@ Report emailed to Customer Service Manager by 8:30am
 
 ## ❗ Problem Being Solved
 
-The Customer Service Manager currently spends **2–3 hours every Monday** manually compiling complaint data from the CRM into a weekly summary for the leadership team. This is done by exporting raw data to Excel and manually calculating category breakdowns, resolution times, and trend comparisons — a repetitive, error-prone process that delays actionable insights.
+The Customer Service Manager currently spends **2–3 hours every Monday** manually compiling complaint data from the CRM into a weekly summary for the leadership team. This is done by exporting raw data to Excel and manually calculating category breakdowns, resolution times, and trend comparisons - a repetitive, error-prone process that delays actionable insights.
 
 By the time the report is ready, the team meeting has often already started, meaning decisions are made without current data. Automating this report generation reduces preparation time from 2–3 hours to under 30 minutes (data export + 30-second check of the generated report).
 
@@ -92,7 +92,7 @@ By the time the report is ready, the team meeting has often already started, mea
 - 2–3 hours of manual report preparation every Monday (high-cost management time)
 - Error-prone manual calculations (category percentages, week-on-week comparisons)
 - Report often not ready before weekly team meeting
-- No consistent flagging threshold — what gets escalated varies by manager
+- No consistent flagging threshold - what gets escalated varies by manager
 
 ---
 
@@ -102,11 +102,11 @@ By the time the report is ready, the team meeting has often already started, mea
 
 | Dimension | Assessment |
 |-----------|------------|
-| Repetitiveness | Very high — identical report structure required every week |
+| Repetitiveness | Very high - identical report structure required every week |
 | Data availability | All inputs available via CRM automated export |
-| Human judgment needed | Low — report is factual summary; manager interprets and acts on content |
+| Human judgment needed | Low - report is factual summary; manager interprets and acts on content |
 | Integration possibility | Fully automatable: CRM export → prompt → email delivery with no manual steps |
-| Estimated time saving | ~85% — from 2–3 hours manual to 30 minutes (data check + review) |
+| Estimated time saving | ~85% - from 2–3 hours manual to 30 minutes (data check + review) |
 
 **Human-in-the-loop role:** Manager reads and verifies report accuracy before sharing with senior leadership. Manager interprets flags and decides what actions to take. Report is never shared externally without human review.
 
@@ -121,27 +121,27 @@ By the time the report is ready, the team meeting has often already started, mea
 | Flagging thresholds are not appropriate for all business periods (e.g. peak season) | Low | Thresholds documented in prompt and can be adjusted by manager for seasonal variation |
 | Report used as substitute for manager engaging with complaint detail | Low | Report explicitly positioned as summary tool; manager training reinforces that flagged items require direct CRM review |
 
-**Overall risk rating: LOW** — report is factual and internal. Human review before sharing externally. Low liability risk as report contains no customer PII.
+**Overall risk rating: LOW** - report is factual and internal. Human review before sharing externally. Low liability risk as report contains no customer PII.
 
 ---
 
 ## 🔄 Version History
 
-### v1.0 — Initial draft
+### v1.0 - Initial draft
 **Date:** 8 April 2025
 **Prompt:** `Summarise this week's customer complaint data for a manager: [CATEGORY_BREAKDOWN] [TOTAL_COMPLAINTS]. Include trends and recommendations.`
 **Output:** Report included statements like "complaint volume is above industry average" (no benchmark data was provided) and "we recommend investing in delivery logistics" (a strategic recommendation not grounded in the weekly data).
-**Observed effect:** Manager could not trust the report — fabricated benchmarks and unsolicited strategic recommendations undermined credibility.
+**Observed effect:** Manager could not trust the report - fabricated benchmarks and unsolicited strategic recommendations undermined credibility.
 **Lesson learned:** Reporting prompts must explicitly prohibit the model from adding benchmarks or recommendations not in the data. Grounding constraints are essential for factual reporting use cases.
 
 ---
 
-### v1.1 — Grounding constraint + fixed flagging thresholds + structured sections ✅ Current
+### v1.1 - Grounding constraint + fixed flagging thresholds + structured sections ✅ Current
 **Date:** 12 April 2025
 **Change:** Added grounding constraint prohibiting invented benchmarks and recommendations; added explicit flagging thresholds (High urgency > 15, overdue > 10, etc.); added structured section format; added 250-word limit; added all required data placeholders
 **Output:** Factual, structured reports in all 10 test cases. Zero fabricated benchmarks. Flagging thresholds correctly applied in all cases where data exceeded thresholds.
 **Observed effect:** Manager preparation time reduced from 2–3 hours to under 30 minutes. Manager described report as "accurate and immediately usable."
-**Lesson learned:** Fixed flagging thresholds in the prompt are far more reliable than asking the model to "identify anything concerning" — which produces inconsistent and often invented concerns.
+**Lesson learned:** Fixed flagging thresholds in the prompt are far more reliable than asking the model to "identify anything concerning" - which produces inconsistent and often invented concerns.
 
 ---
 
@@ -160,6 +160,6 @@ By the time the report is ready, the team meeting has often already started, mea
 
 ## 🔗 Related Prompts
 
-- **Data source:** P01 — Complaint triage (category and urgency data)
-- **Feeds into:** P09 — Agent coaching feedback (performance data informs coaching priorities)
+- **Data source:** P01 - Complaint triage (category and urgency data)
+- **Feeds into:** P09 - Agent coaching feedback (performance data informs coaching priorities)
 - **Library index:** README.md
