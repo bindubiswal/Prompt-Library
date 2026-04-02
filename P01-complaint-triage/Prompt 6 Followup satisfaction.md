@@ -3,7 +3,7 @@
 **Section:** 03 - Post-Resolution
 **Workflow step:** Step 1 of 1
 **Current version:** v1.1
-**Status:** ✅ Tested
+**Status:** Tested
 **Last updated:** April 2025
 
 ---
