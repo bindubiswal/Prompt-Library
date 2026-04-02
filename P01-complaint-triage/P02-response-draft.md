@@ -1,6 +1,6 @@
 # P02 · Customer Response Draft
 
-**Section:** 01 — Complaint Handling
+**Section:** 01 - Complaint Handling
 **Workflow step:** Step 2 of 3
 **Current version:** v1.1
 **Status:** ✅ Tested
@@ -8,7 +8,7 @@
 
 ---
 
-## 📌 Prompt Text (v1.1 — current)
+## 📌 Prompt Text (v1.1 - current)
 
 ```
 You are a customer service representative for [STORE_NAME], a mid-size Australian retail chain.
@@ -19,11 +19,11 @@ Complaint category: [CATEGORY]
 Complaint text: [COMPLAINT_TEXT]
 
 Your response must include these sections in this order:
-1. Acknowledgement — Recognise the customer's frustration without admitting liability
-2. Apology — A genuine but measured apology for their experience
-3. Action — What the business will do to resolve this (use only the options below)
-4. Timeline — When the customer can expect resolution or follow-up
-5. Closing — A warm, professional sign-off
+1. Acknowledgement - Recognise the customer's frustration without admitting liability
+2. Apology - A genuine but measured apology for their experience
+3. Action - What the business will do to resolve this (use only the options below)
+4. Timeline - When the customer can expect resolution or follow-up
+5. Closing - A warm, professional sign-off
 
 Approved resolution options:
 - Refund complaints: "We will process a full review of your order and contact you within 2 business days."
@@ -76,7 +76,7 @@ Agent reviews draft (target: under 2 minutes review time)
 
 Drafting individual customer complaint responses currently takes customer service agents **15–20 minutes per complaint** when done from scratch. At 200 complaints per day across a team of 10 agents, this represents significant labour cost and inconsistent tone and quality across responses.
 
-Inconsistent responses also create legal risk — agents may inadvertently admit liability, offer unauthorised compensation, or include information that contradicts the company's formal position on a complaint.
+Inconsistent responses also create legal risk - agents may inadvertently admit liability, offer unauthorised compensation, or include information that contradicts the company's formal position on a complaint.
 
 **Pain points addressed:**
 - High time cost of drafting responses from scratch (15–20 min per complaint)
@@ -92,11 +92,11 @@ Inconsistent responses also create legal risk — agents may inadvertently admit
 
 | Dimension | Assessment |
 |-----------|------------|
-| Repetitiveness | High — same response structure required for every complaint |
+| Repetitiveness | High - same response structure required for every complaint |
 | Data availability | Inputs (category from P01 + original complaint text) always available |
-| Human judgment needed | Medium — agent must review for tone, accuracy, and context before sending |
+| Human judgment needed | Medium - agent must review for tone, accuracy, and context before sending |
 | Integration possibility | Could integrate with CRM to auto-populate draft in agent's reply window |
-| Estimated time saving | ~80% — from 15–20 min drafting to 2–3 min review and send |
+| Estimated time saving | ~80% - from 15–20 min drafting to 2–3 min review and send |
 
 **Human-in-the-loop role:** Agent reads and approves every draft before it is sent. No response goes to a customer without human sign-off. Agents may edit tone, add specific order details, or adjust wording where context requires it.
 
@@ -110,15 +110,15 @@ Inconsistent responses also create legal risk — agents may inadvertently admit
 | Model offers compensation not authorised by business | High | Constrained resolution options listed in prompt; "Do not offer discounts or compensation not listed above" instruction |
 | Response tone too cold or too casual for the situation | Medium | RACE role framing establishes professional-empathetic tone; agent review catches tone issues |
 | Model includes information not provided (hallucination) | Medium | "Do not include any information not provided to you" constraint; agent reviews for fabricated details |
-| Word limit exceeded — response too long for email format | Low | Maximum 150 word limit enforced in prompt |
+| Word limit exceeded - response too long for email format | Low | Maximum 150 word limit enforced in prompt |
 
-**Overall risk rating: MEDIUM** — human review before send is non-negotiable. Suitable for draft automation with mandatory agent approval gate.
+**Overall risk rating: MEDIUM** - human review before send is non-negotiable. Suitable for draft automation with mandatory agent approval gate.
 
 ---
 
 ## 🔄 Version History
 
-### v1.0 — Initial draft
+### v1.0 - Initial draft
 **Date:** 2 April 2025
 **Prompt:** `Write a customer service response to this complaint: [COMPLAINT_TEXT]. Be professional and empathetic.`
 **Output:** Generic response with inconsistent structure. In one test, the model offered a full refund without being asked. In another, it used a defensive tone ("we are not responsible for...").
@@ -127,7 +127,7 @@ Inconsistent responses also create legal risk — agents may inadvertently admit
 
 ---
 
-### v1.1 — RACE framework + constrained resolution options ✅ Current
+### v1.1 - RACE framework + constrained resolution options ✅ Current
 **Date:** 8 April 2025
 **Change:** Added role framing (RACE), structured output sections (5 required elements), approved resolution options list, explicit constraints on compensation and PII, 150-word limit
 **Output:** Consistent, professional responses with correct structure in all 20 test cases. No unauthorised compensation offers. No liability admissions.
@@ -151,7 +151,7 @@ Inconsistent responses also create legal risk — agents may inadvertently admit
 
 ## 🔗 Related Prompts
 
-- **Previous in chain:** P01 — Complaint triage and classification
-- **Next in chain:** P03 — Escalation summary (if High urgency)
-- **Post-resolution:** P06 — Follow-up satisfaction check email
+- **Previous in chain:** P01 - Complaint triage and classification
+- **Next in chain:** P03 - Escalation summary (if High urgency)
+- **Post-resolution:** P06 - Follow-up satisfaction check email
 - **Library index:** README.md
