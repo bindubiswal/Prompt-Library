@@ -10,7 +10,7 @@
 
 This prompt library automates the end-to-end customer service workflow for a mid-size Australian retail chain handling 200+ complaints per day across online and in-store channels. It covers four operational functions: complaint handling, resolution management, post-resolution follow-up, and team performance. Each prompt is documented with full workflow context, automation potential, risk assessment, and version history demonstrating iterative improvement.
 
-## Library summary — all 10 prompts
+## Library summary - all 10 prompts
 
 | ID | Prompt Name | Workflow Function | Automation Level | Risk Level | Status |
 |----|-------------|-------------------|-----------------|------------|--------|
@@ -34,16 +34,16 @@ Many prompts are put together to work in sequence. Outputs from one prompt is fe
 
 ```
 
-CHAIN 1 — Complaint handling
+CHAIN 1 - Complaint handling
 P01 (Complaint triage) → P02 (Customer response draft) → P03 (Escalation summary)
 
-CHAIN 2 — Resolution management
+CHAIN 2 - Resolution management
 P05 (Order investigation summary) → P04 (Refund decision recommendation)
 
-CHAIN 3 — Post-resolution & reputation
+CHAIN 3 - Post-resolution & reputation
 P02 (Response sent) → P06 (Follow-up satisfaction check) → P07 (Review response if negative)
 
-CHAIN 4 — Reporting & performance
+CHAIN 4 - Reporting & performance
 P01 data → P08 (Weekly trend report)
 P02 data → P09 (Agent coaching note)
 ```
@@ -72,7 +72,7 @@ Full version histories are documented in each prompt's folder. The table below s
 | P03 | v1.0 → v1.1 | Added grounding constraint + self-critique step | Factual accuracy: 70% → 94% |
 | P04 | v1.0 → v1.2 | Added policy boundary + human-override note | Manager override rate: 40% → 12% |
 | P05 | v1.0 → v1.1 | Added structured output sections + data grounding | Completeness score: 3/5 → 5/5 |
-| P06–P10 | v1.0 → v1.1 | Various — see individual prompt folders | Documented per prompt |
+| P06–P10 | v1.0 → v1.1 | Various - see individual prompt folders | Documented per prompt |
 
 ---
 
@@ -101,6 +101,6 @@ BUS4005-Prompt-Library/
 
 - Anthropic (2025). *Prompt Engineering Overview.* https://docs.claude.ai
 - Kartaca (2026). *Standardizing Enterprise Intelligence with a Corporate Prompt Library.*
-- MIT Sloan (2025). *Prompt Engineering is So 2024 — Try These Prompt Templates Instead.*
-- Microsoft (2025). *Get Started with Prompt Library — Copilot Studio.*
+- MIT Sloan (2025). *Prompt Engineering is So 2024 - Try These Prompt Templates Instead.*
+- Microsoft (2025). *Get Started with Prompt Library - Copilot Studio.*
 - VE3 Global (2025). *10 Key Elements of a Prompt Library for Enterprise Tasks.*
