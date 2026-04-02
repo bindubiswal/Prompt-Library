@@ -1,7 +1,7 @@
-# Prompt Library — Customer Service Workflow Automation
+# Prompt Library for Customer Service Workflow Automation
 
-**Assessment 1 | Generative AI for Business — BUS4005**
-**Business Field:** Retail — Customer Service
+**Assessment 1 | Generative AI for Business - BUS4005**
+**Business Field:** Retail store Customer Service
 **Organisation Type:** Mid-size retail chain (online + in-store)
 **Model tested on:** Claude Sonnet 4
 **Total prompts:** 10 (fully documented)
